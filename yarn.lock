@@ -2668,10 +2668,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mziglioli/react-native-components@^1.6.0":
-  version "1.6.0"
-  resolved "https://npm.pkg.github.com/download/@mziglioli/react-native-components/1.6.0/241083db16031a90eb2fb72bfdad56f2b697cac05b7cc2a219585274c1bdb18e#0d8f80798b072cd138a5e34549b205353b452302"
-  integrity sha512-TBzIk9JglwmzeqdqN3cyX5/f+vDhPnzOoKmv2l3tQ6if3XEpcn4v1GxU5QRjGHrZDm5wBQD58XYEKcfy/l8Pwg==
+"@mziglioli/react-native-components@^1.9.1":
+  version "1.9.1"
+  resolved "https://npm.pkg.github.com/download/@mziglioli/react-native-components/1.9.1/ac6685067af44df78d7c9218d53f9a3c47acc3704eb44cd28fda807ecd97440e#944fac364cf5fb2cca3f0d32f07db394b44f0488"
+  integrity sha512-PLTfkvDzaHPlCfMYZDJKzqSd4oJuIF+V5LyjrSA4cZEkrzGIAnjU3cT0Hjl6LOQxLv1eo1yEo4/37GQM0ArtqA==
   dependencies:
     "@expo/vector-icons" "^12.0.5"
     "@react-native-community/masked-view" "^0.1.11"
@@ -2679,6 +2679,7 @@
     "@react-navigation/material-bottom-tabs" "^5.3.15"
     "@react-navigation/native" "^5.9.4"
     "@react-navigation/stack" "^5.14.5"
+    "@testing-library/jest-native" "^4.0.1"
     expo "^40.0.0"
     expo-asset "^8.3.2"
     expo-cli "^4.0.13"
@@ -2693,6 +2694,7 @@
     react-native-builder-bob "^0.18.1"
     react-native-gesture-handler "^1.10.3"
     react-native-paper "^4.9.2"
+    react-native-paper-autocomplete "^0.2.1"
     react-native-reanimated "^2.2.0"
     react-native-safe-area-context "^3.2.0"
     react-native-screens "^3.4.0"
@@ -3462,6 +3464,18 @@
   integrity sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==
   dependencies:
     defer-to-connect "^2.0.0"
+
+"@testing-library/jest-native@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-native/-/jest-native-4.0.1.tgz#000902622cb44f0d723a9f0e9eb8699f3ea511ae"
+  integrity sha512-dqeVpMSb8nZ1QxvzHxiKb4MqepNfFt8MeUwq9r/BTIOIrUFjDRDSpReZXVv9tcQypz2BcjbNK7BAEvyLSF33hQ==
+  dependencies:
+    chalk "^2.4.1"
+    jest-diff "^24.0.0"
+    jest-matcher-utils "^24.0.0"
+    pretty-format "^24.0.0"
+    ramda "^0.26.1"
+    redent "^2.0.0"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -7033,6 +7047,11 @@ detect-port@^1.3.0:
     address "^1.0.1"
     debug "^2.6.0"
 
+diff-sequences@^24.9.0:
+  version "24.9.0"
+  resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-24.9.0.tgz#5715d6244e2aa65f48bba0bc972db0b0b11e95b5"
+  integrity sha512-Dj6Wk3tWyTE+Fo1rW8v0Xhwk80um6yFYKbuAxc9c3EZxIHFDYwbi34Uk42u1CdnIiVorvt4RmlSDjIPyzGC2ew==
+
 diff-sequences@^25.2.6:
   version "25.2.6"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/diff-sequences/-/diff-sequences-25.2.6.tgz#5f467c00edd35352b7bca46d7927d60e687a76dd"
@@ -9663,6 +9682,11 @@ indent-string@4.0.0, indent-string@^4.0.0:
   resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251"
   integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
 
+indent-string@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-3.2.0.tgz#4a5fd6d27cc332f37e5419a504dbb837105c9289"
+  integrity sha1-Sl/W0nzDMvN+VBmlBNu4NxBckok=
+
 indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
@@ -10478,6 +10502,16 @@ jest-config@^25.5.4:
     pretty-format "^25.5.0"
     realpath-native "^2.0.0"
 
+jest-diff@^24.0.0, jest-diff@^24.9.0:
+  version "24.9.0"
+  resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-24.9.0.tgz#931b7d0d5778a1baf7452cb816e325e3724055da"
+  integrity sha512-qMfrTs8AdJE2iqrTp0hzh7kTd2PQWrsFyj9tORoKmu32xjPjeE4NyjVRDz8ybYwqS2ik8N4hsIpiVTyFeo2lBQ==
+  dependencies:
+    chalk "^2.0.1"
+    diff-sequences "^24.9.0"
+    jest-get-type "^24.9.0"
+    pretty-format "^24.9.0"
+
 jest-diff@^25.5.0:
   version "25.5.0"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/jest-diff/-/jest-diff-25.5.0.tgz#1dd26ed64f96667c068cef026b677dfa01afcfa9"
@@ -10623,6 +10657,16 @@ jest-leak-detector@^25.5.0:
   dependencies:
     jest-get-type "^25.2.6"
     pretty-format "^25.5.0"
+
+jest-matcher-utils@^24.0.0:
+  version "24.9.0"
+  resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-24.9.0.tgz#f5b3661d5e628dffe6dd65251dfdae0e87c3a073"
+  integrity sha512-OZz2IXsu6eaiMAwe67c1T+5tUAtQyQx27/EMEkbFAGiw52tB9em+uGbzpcgYVpA8wl0hlxKPZxrly4CXU/GjHA==
+  dependencies:
+    chalk "^2.0.1"
+    jest-diff "^24.9.0"
+    jest-get-type "^24.9.0"
+    pretty-format "^24.9.0"
 
 jest-matcher-utils@^25.5.0:
   version "25.5.0"
@@ -13848,7 +13892,7 @@ pretty-error@^2.1.1:
     lodash "^4.17.20"
     renderkid "^2.0.4"
 
-pretty-format@^24.9.0:
+pretty-format@^24.0.0, pretty-format@^24.9.0:
   version "24.9.0"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/pretty-format/-/pretty-format-24.9.0.tgz#12fac31b37019a4eea3c11aa9a959eb7628aa7c9"
   integrity sha1-EvrDGzcBmk7qPBGqmpWet2KKp8k=
@@ -14160,6 +14204,11 @@ ramda@^0.21.0:
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
   integrity sha1-oAGr7bP/YQd9T/HVd9RN536NCjU=
 
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -14430,6 +14479,11 @@ react-native-iphone-x-helper@^1.3.0, react-native-iphone-x-helper@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
+
+react-native-paper-autocomplete@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-paper-autocomplete/-/react-native-paper-autocomplete-0.2.1.tgz#182e4b27a4ffb92b3fecd20ed92a4936509cd39c"
+  integrity sha512-1bquu36J7Tkk1B1Ge9gADLU+7tGPZjO2/3BD+Ot6zINki5qCeq4Nqpdj7xdchkjDv5gSywAY5tThHtljZer6cA==
 
 react-native-paper@^4.9.2:
   version "4.9.2"
@@ -14771,6 +14825,14 @@ recursive-readdir@2.2.2:
   integrity sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==
   dependencies:
     minimatch "3.0.4"
+
+redent@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/redent/-/redent-2.0.0.tgz#c1b2007b42d57eb1389079b3c8333639d5e1ccaa"
+  integrity sha1-wbIAe0LVfrE4kHmzyDM2OdXhzKo=
+  dependencies:
+    indent-string "^3.0.0"
+    strip-indent "^2.0.0"
 
 refractor@^2.4.1:
   version "2.10.1"
@@ -16221,6 +16283,11 @@ strip-final-newline@^2.0.0:
   version "2.0.0"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/strip-final-newline/-/strip-final-newline-2.0.0.tgz#89b852fb2fcbe936f6f4b3187afb0a12c1ab58ad"
   integrity sha1-ibhS+y/L6Tb29LMYevsKEsGrWK0=
+
+strip-indent@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strip-indent/-/strip-indent-2.0.0.tgz#5ef8db295d01e6ed6cbf7aab96998d7822527b68"
+  integrity sha1-XvjbKV0B5u1sv3qrlpmNeCJSe2g=
 
 strip-json-comments@~2.0.1:
   version "2.0.1"

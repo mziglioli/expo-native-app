@@ -1,24 +1,40 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useState} from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import {
-  Provider as PaperProvider,
-} from 'react-native-paper';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
-import { SideBar, Page, TabBottom, buildItems, tabScenes, tabRoutes } from '@mziglioli/react-native-components';
+import { SideBar, PageContainer, MenuItem } from '@mziglioli/react-native-components';
 import { View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import {
+    Provider as PaperProvider,
+} from 'react-native-paper';
+import {Account} from "./container/Account/Account";
+import {User} from "./type";
 
 const Drawer = createDrawerNavigator();
-const SideBarItems = buildItems();
+export const buildMenuItem = (
+    label: string,
+    icon: string,
+    active: boolean
+): MenuItem => {
+    return {
+        label: `${label}`,
+        icon: icon,
+        active: active,
+        page: `${label}`,
+    };
+};
+const SideBarItems = [
+    buildMenuItem('Account', 'account', false),
+    buildMenuItem('Help', 'help-circle', false),
+    buildMenuItem('Contact', 'card-account-phone', false),
+];
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+  const [user, setUser] = useState<User>({name: "Guest", email: "", initials: "GT"});
 
   if (!isLoadingComplete) {
     return null;
@@ -26,52 +42,79 @@ export default function App() {
     return (
         <PaperProvider>
           <SafeAreaProvider>
-            <NavigationContainer>
-              <Drawer.Navigator
-                  initialRouteName="Home"
-                  drawerContent={(props) => (
-                      <SideBar
-                          title="Some title"
-                          navigation={props.navigation}
-                          items={SideBarItems}
-                      />
-                  )}
+              <NavigationContainer
+                  onUnhandledAction={(action) => console.log('onUnhandledAction', action)}
               >
-                <Drawer.Screen
-                    name="Home"
-                    component={(props) => (
-                        <View
-                            style={{
-                              flex: 1,
-                              flexDirection: 'column',
-                              backgroundColor: '#fff',
-                            }}
-                        >
-                          <Page page={'Home'} title={'Home'} navigation={props.navigation} />
-                          <TabBottom tabRoutes={tabRoutes} scenes={tabScenes} />
-                        </View>
-                    )}
-                />
-                <Drawer.Screen name="second">
-                  {(props) => (
-                      <Page
-                          page={'second'}
-                          title="second page"
-                          navigation={props.navigation}
-                      >
-                        <View>
-                          <Button
-                              onPress={() => {
-                                props.navigation.navigate('first');
+                  <Drawer.Navigator
+                      initialRouteName="Account"
+                      drawerContent={(props) => (
+                          <SideBar
+                              currentPage={'Account'}
+                              customer={user}
+                              itemPress={(item) => {
+                                  props.navigation.navigate(item.page);
                               }}
-                              title={'second page'}
+                              items={SideBarItems}
                           />
-                        </View>
-                      </Page>
-                  )}
-                </Drawer.Screen>
-              </Drawer.Navigator>
-            </NavigationContainer>
+                      )}
+                  >
+                      <Drawer.Screen
+                          name="Home"
+                          component={() => (
+                              <PageContainer
+                                  page="Home"
+                                  name="Home"
+                                  backNavigateTo="Home"
+                              >
+                                  <View>Home todo</View>
+                              </PageContainer>
+                          )}
+                      />
+                      <Drawer.Screen
+                          name="Account"
+                      >
+                          {(props) => (
+                              <PageContainer
+                                  testId="AccountContainer"
+                                  page="Account"
+                                  name="Account"
+                                  backNavigateTo="Home"
+                              >
+                                  <Account onLoginSuccess={(user)=> {
+                                      setUser(user);
+                                      props.navigation.navigate('Home');
+                                  }} />
+                              </PageContainer>
+                          )}
+                      </Drawer.Screen>
+                      <Drawer.Screen
+                          name="Contact"
+                          component={() => (
+                              <PageContainer
+                                  page="Contact"
+                                  name="Contact"
+                                  backNavigateTo="Contact"
+                              >
+                                  <View>Contact todo</View>
+                              </PageContainer>
+                          )}
+                      />
+                      <Drawer.Screen name="Help">
+                          {(props) => (
+                              <PageContainer page="Help" name="Help" backNavigateTo="Contact">
+                                  <View>
+                                      <Button
+                                          onPress={() => {
+                                              props.navigation.navigate('Contact');
+                                          }}
+                                          title={'second page'}
+                                      />
+                                  </View>
+                              </PageContainer>
+                          )}
+                      </Drawer.Screen>
+                  </Drawer.Navigator>
+              </NavigationContainer>
           </SafeAreaProvider>
         </PaperProvider>
 
