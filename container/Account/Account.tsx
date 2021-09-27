@@ -27,11 +27,13 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
     loginInApi({ email, password })
       .then((user) => {
         //todo
+        console.log('loginInApi:success', user);
         setLoading(false);
         setError('');
         onLoginSuccess(user);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log('loginInApi:error', error);
         setLoading(false);
         setError('login');
       });
@@ -40,11 +42,13 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
     console.log('handleReset', email);
     resetPasswordInApi({ email })
       .then((value) => {
+        console.log('resetPasswordInApi:success', value);
         //todo
         setLoading(false);
         setError('');
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log('resetPasswordInApi:error', error);
         setLoading(false);
         setError('reset');
       });
@@ -57,11 +61,13 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
     console.log('handleSingUp', name, email, password);
     signUpInApi({ name, email, password })
       .then((value) => {
+        console.log('signUpInApi:success', value);
         //todo
         setLoading(false);
         setError('');
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log('signUpInApi:success', error);
         setLoading(false);
         setError('sign');
       });

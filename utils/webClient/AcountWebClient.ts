@@ -2,6 +2,7 @@ import { makePostRequest } from './WebClientUtils';
 import { LoginForm, ResetForm, SignUpForm } from '../../type';
 
 export const loginInApi = async (loginForm: LoginForm): Promise<any> => {
+  console.log('loginInApi', loginForm);
   return { email: 'test@test.com', name: 'Marcelo Ziglioli', initials: 'MZ' };
   // return makePostRequest('www.mywebsite/api/login', loginForm);
 };
