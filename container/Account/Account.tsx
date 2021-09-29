@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import {
   Login,
-  ResetPassword,
+  ResendEmail,
   CreateAccount,
   Loading,
 } from '@mziglioli/react-native-components';
@@ -21,16 +21,31 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
   const [error, setError] = useState<string>('');
   const [page, setPage] = useState<string>('login');
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [loginSecret, setLoginSecret] = useState<boolean>(false);
 
-  const handleLogin = (email: string, password: string): void => {
+  const handleLogin = (
+    email: string,
+    password: string,
+    secret?: string
+  ): void => {
     setLoading(true);
-    loginInApi({ email, password })
+    loginInApi({ email, password, secret })
       .then((user) => {
-        //todo
-        console.log('loginInApi:success', user);
-        setLoading(false);
-        setError('');
-        onLoginSuccess(user);
+        if (user.token) {
+          console.log('loginInApi:success', user);
+          setLoading(false);
+          setError('');
+          onLoginSuccess(user);
+        } else {
+          console.log('loginInApi:invalid', user);
+          setLoading(false);
+          setError('login');
+          if (user.loginAttempt > 3) {
+            setLoginSecret(true);
+          } else {
+            setLoginSecret(false);
+          }
+        }
       })
       .catch((error) => {
         console.log('loginInApi:error', error);
@@ -77,6 +92,7 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
       <Loading isLoading={isLoading} />
       {page === 'login' && (
         <Login
+          withSecret={loginSecret}
           testId={'te'}
           showError={error === 'login'}
           onLoginClick={handleLogin}
@@ -85,7 +101,9 @@ export const Account = ({ onLoginSuccess }: AccountProps) => {
         />
       )}
       {page === 'reset' && (
-        <ResetPassword
+        <ResendEmail
+          title="Resend password"
+          buttonTitle="Request new passord"
           testId={'te'}
           showError={error === 'reset'}
           onLoginClick={() => setPage('login')}

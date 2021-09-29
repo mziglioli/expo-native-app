@@ -2921,10 +2921,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mziglioli/react-native-components@^1.9.1":
-  version "1.9.1"
-  resolved "https://npm.pkg.github.com/download/@mziglioli/react-native-components/1.9.1/ac6685067af44df78d7c9218d53f9a3c47acc3704eb44cd28fda807ecd97440e#944fac364cf5fb2cca3f0d32f07db394b44f0488"
-  integrity sha512-PLTfkvDzaHPlCfMYZDJKzqSd4oJuIF+V5LyjrSA4cZEkrzGIAnjU3cT0Hjl6LOQxLv1eo1yEo4/37GQM0ArtqA==
+"@mziglioli/react-native-components@^1.9.2":
+  version "1.9.2"
+  resolved "https://npm.pkg.github.com/download/@mziglioli/react-native-components/1.9.2/31c0600c5bf9c8a12e42164d1014a3eb59a77abaff5c691f6b6eb595c7eeedb4#1270740b0e09cdada747f9563c8347b8b58f0cd8"
+  integrity sha512-P/Qj8eVKAP4KvfNUXcVb2xngPJBg08tecnh0ggThfMjSPuhPha3G2iqRirfXRFLGGaN6HAdFmI17fWDnDl6rpw==
   dependencies:
     "@expo/vector-icons" "^12.0.5"
     "@react-native-community/masked-view" "^0.1.11"

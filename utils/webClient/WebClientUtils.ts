@@ -34,6 +34,7 @@ export const makePostRequest = async (url: string, form: any): Promise<any> => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': 'Basic d2ViOndlYg==',
     },
     body: JSON.stringify(form),
   }).then((response) => handleResponse(url, response));

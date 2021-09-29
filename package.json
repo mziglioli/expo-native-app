@@ -21,7 +21,7 @@
     "@storybook/react-native-server": "^5.3.23",
     "@expo/vector-icons": "^12.0.5",
     "react-native-paper": "^4.9.2",
-    "@mziglioli/react-native-components": "^1.9.1",
+    "@mziglioli/react-native-components": "^1.9.2",
     "react-native": "0.63.4",
     "react-native-builder-bob": "^0.18.1",
     "react-test-renderer": "^17.0.2",
@@ -72,5 +72,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "proxy": "http://localhost:8082"
 }

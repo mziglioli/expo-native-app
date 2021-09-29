@@ -13,7 +13,7 @@ import { View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Account } from './container/Account/Account';
-import { User } from './type';
+import { User, UserInitial } from './type';
 
 const Drawer = createDrawerNavigator();
 export const buildMenuItem = (
@@ -36,11 +36,7 @@ const SideBarItems = [
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const [user, setUser] = useState<User>({
-    name: 'Guest',
-    email: '',
-    initials: 'GT',
-  });
+  const [user, setUser] = useState<User>(UserInitial);
 
   if (!isLoadingComplete) {
     return null;
